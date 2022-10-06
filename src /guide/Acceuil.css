@@ -1,0 +1,69 @@
+.Accueil-gauche {
+  width: 13rem;
+  height: 40rem;
+  text-align: left;
+  font-size: 1rem;
+  background-color: #d9d9d9;
+  margin-left: 1rem;
+  position: sticky;
+}
+ul:hover {
+  background-color: #a81818;
+  color: white;
+
+  cursor: pointer;
+}
+.icone-acceuil {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+    color: rgb(12, 12, 12);
+
+  font-weight: bold;
+
+  /*   margin-left: 4rem; */
+  /* margin-right: 4rem; */
+  margin-top: 4rem;
+}
+.iconeHome {
+  width: 1.5rem;
+}
+.iconeHome img:hover {
+  color: white;
+}
+
+.icon-singup {
+  width: 1.5rem;
+}
+.singup {
+  display: flex;
+  color: rgb(13, 14, 14);
+  font-weight: bold;
+  gap: 1rem;
+  /*  margin-left: 4rem; */
+}
+.paramettre {
+  display: flex;
+  color: rgb(10, 10, 10);
+  /*  margin-left: 4rem; */
+  gap: 1rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+.icone-paramettre {
+  width: 1.5rem;
+}
+@media screen and (max-width: 425px) {
+  .Accueil-gauche {
+    width: 9rem;
+  }
+  .icone-acceuil {
+    margin-left: 1rem;
+  }
+  .singup {
+    margin-left: 1rem;
+  }
+  .paramettre {
+    margin-left: 0.5rem;
+  }
+}

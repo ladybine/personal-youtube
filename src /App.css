@@ -1,0 +1,30 @@
+body {
+  background-color: #221d1d;
+}
+.kk {
+  display: flex;
+  gap: 3rem;
+}
+
+@media screen and (max-width: 425px) {
+  body {
+    background-color: #f0e8e8;
+  }
+  .kk {
+    width: 8rem;
+  }
+
+
+  .logo img {
+    width: 3rem;
+  }
+  .barre-de-recherche input {
+    width: 6rem;
+    height: 1rem;
+    margin-top: 1rem;
+  }
+
+  .contenaire-videos .tt .video {
+    width: 8rem;
+  }
+}

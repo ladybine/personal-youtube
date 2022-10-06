@@ -1,0 +1,19 @@
+.Header-cotenair {
+  display: flex;
+  margin: 1rem;
+  gap: 1rem;
+}
+
+img {
+  width: 13rem;
+}
+input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 65rem;
+  height: 2rem;
+  font-size: 17px;
+  background-color: #d9d9d9;
+  margin: 2rem;
+}

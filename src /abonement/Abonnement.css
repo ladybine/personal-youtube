@@ -1,0 +1,16 @@
+.liste-abonement {
+  color: rgb(13, 14, 14);
+  font-weight: bold;
+  /*  margin-left: 4rem; */
+  margin-top: 2rem;
+}
+.border {
+  border: solid 1px rgb(13, 14, 14);
+  width: 12rem;
+  align-items: center;
+  margin: auto;
+}
+ul:hover {
+  color: white;
+  background-color: #a81818;
+}
