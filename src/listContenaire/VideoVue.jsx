@@ -14,7 +14,7 @@ const VideoVue = () => {
       </div>
       <div className="video">
         <div className="kirua">
-          <Video />
+         {/*  <Video /> */}
         </div>
 
        {/*  {<img className="kirua" src={Kirua}></img>}
