@@ -1,30 +1,56 @@
-import React, { Component } from "react";
-import { GoogleLogin } from "react-google-login";
+import React, { Component, useEffect } from "react";
+import { gapi, loadAuth2 } from "gapi-script";
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { userContext } from "./ContextLogin";
+import "./login.css";
+import google from './google.png'
 
-const clienId =
-  "532957026773-gvkujv0sc2dd2icc6f73s375erbd7oks.apps.googleusercontent.com";
-
-const responseGoogle = (response) => {
-  console.log(response.accessToken);
-};
-
-const onSuccess = (res) => {
-  console.log("LOGIN SUCCESS! Current user: ", res.profileObj);
-};
-const onFailure = (res) => {
-  console.log("LOGIN FAILED! res:", res);
-};
 function Login() {
+
+  const {userToken, setUserToken}= useContext(userContext)
+  const clienId =
+    "532957026773-gvkujv0sc2dd2icc6f73s375erbd7oks.apps.googleusercontent.com";
+
+  const nav = useNavigate();
+  useEffect(() => {
+    const setAuth2 = async () => {
+      const auth2 = await loadAuth2(
+        gapi,
+        clienId,
+        "https://www.googleapis.com/auth/youtube"
+      );
+      if (auth2.isSignedIn.get()) {
+        updateUser(auth2.currentUser.get());
+      } else {
+        attachSignin(document.getElementById("signUpButton"), auth2);
+      }
+    };
+    setAuth2();
+  }, []);
+  const attachSignin = (element, auth2) => {
+    auth2.attachClickHandler(
+      element,
+      {},
+      (googleUser) => {
+        updateUser(googleUser);
+      },
+      (error) => {
+        console.log(JSON.stringify(error));
+      }
+    );
+  };
+  const updateUser = (user) => {
+    // console.log(user.xc.access_token);
+    //localStorage.setItem('token',)
+    setUserToken(user.xc.access_token);
+    nav("/home");
+  };
+  
   return (
     <div id="signUpButton">
-      <GoogleLogin
-         clientId={clienId}
-        buttonText="login"
-        onSuccess={onSuccess}
-        onFailure={onFailure}
-         cookiePolicy={"single_host_origin"}
-        scope=""
-      />
+      <img src={google} />
+      <button>Login with Google</button>
     </div>
   );
 }

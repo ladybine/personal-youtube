@@ -9,9 +9,13 @@ const EnTete = () => {
       <div className="logo">
         <img src={logo}></img>
       </div>
-      <div className="barre-de-recherche">
-        <input type="text" placeholder="Rechercher"></input>
-        
+      <div className="profil-barre">
+        <div className="profil">
+          <img src={logo} />
+        </div>
+        <div className="barre-de-recherche">
+          <input type="text" placeholder="Rechercher"></input>
+        </div>
       </div>
     </div>
   );

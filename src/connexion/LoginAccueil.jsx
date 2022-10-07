@@ -1,15 +1,21 @@
 import React from 'react'
-import Logo from '../header/logo.png'
+import logo from '../header/logo.png'
 import Login from './Login'
 import Logout from './Logout'
+import './login.css'
 const LoginAccueil = () => {
   return (
     <div>
-      <img src={Logo}/>
-      <Login/>
-      <Logout/>
+      <div className="block-login">
+        <div className='logo1'>
+          <img src={logo} />
+        </div>
+
+        <Login />
+        
+      </div>
     </div>
-  )
+  );
 }
 
 export default LoginAccueil

@@ -1,0 +1,33 @@
+.block-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+  margin-left: 20rem;
+  border-radius: 30px;
+  background-color: #322b2b;
+  width: 40rem;
+  padding: 4rem;
+}
+
+#signUpButton {
+ display: flex;
+  margin: auto;
+  justify-content: center;
+  background-color: white;
+}
+button{
+  text-decoration: none;
+  appearance: none;
+}
+#signOutButton {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+.logo1 {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
