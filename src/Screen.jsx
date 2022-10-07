@@ -17,8 +17,8 @@ const Screen = () => {
         <Acceuil />
         <VideoVue />
       </div>
-      <Lecteur />
-      <Logout />
+     {/*  <Lecteur /> */}
+     
     </div>
   );
 };

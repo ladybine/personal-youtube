@@ -9,18 +9,7 @@ const clienId =
 
 function Logout() {
   const navigate = useNavigate();
-  useEffect(() => {
-    const setAuth2 = async () => {
-      const auth2 = await loadAuth2(
-        gapi,
-        clienId,
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-      );
-      if (auth2.isSignedIn.get()) {
-      }
-    };
-    setAuth2();
-  }, []);
+  
   const signOut = () => {
     const auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(() => {

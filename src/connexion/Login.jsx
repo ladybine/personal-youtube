@@ -4,11 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { userContext } from "./ContextLogin";
 import "./login.css";
-import google from './google.png'
+import google from "./google.png";
 
 function Login() {
-
-  const {userToken, setUserToken}= useContext(userContext)
+  const { userToken, setUserToken } = useContext(userContext);
   const clienId =
     "532957026773-gvkujv0sc2dd2icc6f73s375erbd7oks.apps.googleusercontent.com";
 
@@ -41,16 +40,16 @@ function Login() {
     );
   };
   const updateUser = (user) => {
-    // console.log(user.xc.access_token);
-    //localStorage.setItem('token',)
+    console.log(user.xc.access_token);
+    localStorage.setItem("token");
     setUserToken(user.xc.access_token);
     nav("/home");
   };
-  
+
   return (
     <div id="signUpButton">
       <img src={google} />
-      <button>Login with Google</button>
+      <p>Login with Google</p>
     </div>
   );
 }

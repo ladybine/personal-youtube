@@ -4,6 +4,7 @@ import HouseSolid from "./house-solid.svg";
 import Vector from "./Vector.svg";
 import Vector2 from "./Vector2.svg";
 import Abonnement from "../abonement/Abonnement";
+import Logout from "../connexion/Logout";
 
 const Acceuil = () => {
   return (
@@ -14,7 +15,7 @@ const Acceuil = () => {
       </ul>
       <ul className="singup">
         <img className="icon-singup" src={Vector} />
-        <a>Sign up</a>
+        <Logout />
       </ul>
       <ul className="paramettre">
         <img className="icone-paramettre" src={Vector2} />
