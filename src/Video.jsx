@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+/* import { useEffect, useState } from "react";
 import React from "react";
 import "../src/listContenaire/list.css";
  
 const API = "AIzaSyCWbRRgiUGXc5gjERPSmOtx5OqMDJxcD2g"; 
 /* const API = "AIzaSyB-RXieYETW06rlqTtOZ3hsyoZNP4NhZgo"; */
 
-const channelId = "UCmFt1y9cbHx3amPRctMEyvA";
+/* const channelId = "UCmFt1y9cbHx3amPRctMEyvA";
 
 let fetcUrl = `https:youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=surfing&key=${API}`;
 
@@ -49,8 +49,13 @@ const Video = () => {
           );
         })}
       </div>
+      <ChannelComponent
+        channelId={chaine.snippet.resourceId.channelId}
+        chaine={chaine}
+      />
     </div>
   );
 };
 
-export default Video;
+export default Video; */
+ 

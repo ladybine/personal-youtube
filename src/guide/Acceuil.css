@@ -1,6 +1,6 @@
 .Accueil-gauche {
   width: 13rem;
-  height: 40rem;
+  height: 50rem;
   text-align: left;
   font-size: 1rem;
   background-color: #d9d9d9;
@@ -20,6 +20,7 @@ ul:hover {
   color: rgb(12, 12, 12);
 
   font-weight: bold;
+  font-size: 16px;
 
   /*   margin-left: 4rem; */
   /* margin-right: 4rem; */

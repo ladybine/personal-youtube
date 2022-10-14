@@ -1,12 +1,18 @@
-import React from 'react'
-import './list.css'
+import React, { useEffect } from "react";
+
+import "./list.css";
+
 
 const ChaineAbonné = () => {
+  
+
   return (
     <div>
-      <button className='chaine-abonné'>Abonné</button>
-    </div>
-  )
-}
+      <button className="chaine-abonné">Abonné</button>
 
-export default ChaineAbonné
+     
+    </div>
+  );
+};
+
+export default ChaineAbonné;

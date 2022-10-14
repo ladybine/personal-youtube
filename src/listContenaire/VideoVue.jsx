@@ -1,39 +1,43 @@
 import React from "react";
-import "./list.css";
-import ChaineAbonné from "./ChaineAbonné";
-import TousChaine from "./TousChaine";
-import Kirua from "./kirua.jpg";
-import Video from "../Video";
-import { useEffect } from "react";
-import { useContext } from "react";
-import { userContext } from "../connexion/ContextLogin";
 import { useState } from "react";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import "../channel/Channel.css";
 
-const API = "AIzaSyCWbRRgiUGXc5gjERPSmOtx5OqMDJxcD2g";
-/* const API = "AIzaSyB-RXieYETW06rlqTtOZ3hsyoZNP4NhZgo"; */
-const fechUrl = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&myRating=like&key=${API}`;
+const API = "AIzaSyB-RXieYETW06rlqTtOZ3hsyoZNP4NhZgo";
+
+const fetchUrl4 = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=25&regionCode=US&key=${API}`;
+
 const VideoVue = () => {
-  const { userToken, setUserToken } = useContext(userContext);
-  const [video, setVideo] = useState([]);
+  const [list, setList] = useState();
   useEffect(() => {
-    fetch(fechUrl, { headers: { Authorization: "Bearer " + userToken } })
+    fetch(fetchUrl4)
       .then((response) => response.json())
-      .then((data) => setVideo(data));
-  }, [userToken]);
-  console.log(video);
-  return (
-    <div className="contenaire-videos">
-      <div className="tt">
-        <ChaineAbonné />
-        <TousChaine />
-      </div>
-      <div className="video">
-        <div className="kirua">
-         {/*  {video.map((items) => (
-            <div></div>
-          ))} */}
-        </div>
+      .then((data) => setList(data.items));
+  }, []);
+  console.log(list);
 
+  return (
+    <div className="playlist">
+      <div className="flex1">
+        {list?.map((list) => {
+          const wacthId = list.id;
+          console.log(wacthId);
+          return (
+            <Link to={`/wacth/${wacthId}`}>
+              <div className="visuelVideo">
+                <img src={list?.snippet?.thumbnails?.medium?.url} />
+
+                <div className="playlistTitre">
+                  <p className="titre-video">{list?.snippet?.title}</p>
+                  <p className="titre-video">
+                    {list.statistics.commentCount} vue
+                  </p>
+                </div>
+              </div>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );

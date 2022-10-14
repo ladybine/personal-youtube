@@ -3,11 +3,11 @@ import "./App.css";
 import EnTete from "./header/EnTete";
 import Acceuil from "./guide/Acceuil";
 import VideoVue from "./listContenaire/VideoVue";
-import Video from "./Video";
+//import Video from "./Video";
 import Lecteur from "./listContenaire/Lecteur";
 import Logout from "./connexion/Logout";
 
-const Screen = () => {
+const Screen = ({children}) => {
   return (
     <div>
       <div className="yy">
@@ -15,7 +15,7 @@ const Screen = () => {
       </div>
       <div className="kk">
         <Acceuil />
-        <VideoVue />
+        {children}
       </div>
      {/*  <Lecteur /> */}
      

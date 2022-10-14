@@ -1,20 +1,21 @@
 import React from "react";
 import ReactDom from "react-dom/client";
 import "./App.css";
-import EnTete from "./header/EnTete";
-import Acceuil from "./guide/Acceuil";
-import VideoVue from "./listContenaire/VideoVue";
+/* import ScrenLike from "./guide/ScrenLike"; */
 import { gapi, loadAuth2 } from "gapi-script";
 import { useEffect, useState } from "react";
-import Video from "./Video";
 import LoginAccueil from "./connexion/LoginAccueil";
-import Lecteur from "./listContenaire/Lecteur";
 import { Router, Routes, Route } from "react-router-dom";
 import Screen from "./Screen";
 import { userContext } from "./connexion/ContextLogin";
-
+import ChannelComponent from "./channel/ChannelComponent";
+//import Video from "./Video";
+import VideoVue from "./listContenaire/VideoVue";
+import Player from "./channel/Player";
 const clienId =
-  "532957026773-gvkujv0sc2dd2icc6f73s375erbd7oks.apps.googleusercontent.com";
+  "515896933221-cgpvtouavfnu5c8fpr025kd1qhgqstqt.apps.googleusercontent.com";
+//3"1049288288589-6p8n3lmvfhok9q1o234ojopohemf07gq.apps.googleusercontent.com";
+//1"532957026773-gvkujv0sc2dd2icc6f73s375erbd7oks.apps.googleusercontent.com";
 
 function App() {
   const [userToken, setUserToken] = useState("");
@@ -36,7 +37,38 @@ function App() {
     <userContext.Provider value={{ userToken, setUserToken }}>
       <Routes>
         <Route path="/" element={<LoginAccueil />} />
-        <Route path="/home" element={<Screen />} />
+        <Route
+          path="/home"
+          element={
+            <Screen>
+              <VideoVue />
+            </Screen>
+          }
+        />
+        <Route
+          path="/listVideo/:channelId"
+          element={
+            <Screen>
+              <ChannelComponent />
+            </Screen>
+          }
+        />
+        <Route
+          path="/video"
+          element={
+            <Screen>
+              <VideoVue />
+            </Screen>
+          }
+        />
+        <Route
+          path="wacth/:wacthId"
+          element={
+            <Screen>
+              <Player />
+            </Screen>
+          }
+        />
       </Routes>
     </userContext.Provider>
   );

@@ -1,0 +1,30 @@
+.playlist {
+  display: flex;
+  gap: 1rem;
+  width: 65rem;
+  flex-wrap: wrap;
+  color: azure;
+}
+.visuelVideo {
+  font-size: 1rem;
+}
+.playlistTitre {
+  width: 20rem;
+  color: white;
+}
+.visuelVideo img {
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 20rem;
+}
+.reading {
+  width: 50%;
+  height: 30rem;
+}
+.flex1 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  color: white;
+  width: 65rem;
+}

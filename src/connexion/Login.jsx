@@ -9,7 +9,9 @@ import google from "./google.png";
 function Login() {
   const { userToken, setUserToken } = useContext(userContext);
   const clienId =
-    "532957026773-gvkujv0sc2dd2icc6f73s375erbd7oks.apps.googleusercontent.com";
+  "515896933221-cgpvtouavfnu5c8fpr025kd1qhgqstqt.apps.googleusercontent.com";
+   //3 "1049288288589-6p8n3lmvfhok9q1o234ojopohemf07gq.apps.googleusercontent.com";
+    //1"532957026773-gvkujv0sc2dd2icc6f73s375erbd7oks.apps.googleusercontent.com";
 
   const nav = useNavigate();
   useEffect(() => {
@@ -41,10 +43,11 @@ function Login() {
   };
   const updateUser = (user) => {
     console.log(user.xc.access_token);
-    localStorage.setItem("token");
+    localStorage.setItem("token", user.xc.access_token);
     setUserToken(user.xc.access_token);
     nav("/home");
   };
+ 
 
   return (
     <div id="signUpButton">
