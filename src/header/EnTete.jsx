@@ -1,9 +1,14 @@
 import React from "react";
 import "./EnTete.css";
 import logo from "./logo.png";
-import Abonnement from "../abonement/Abonnement";
+import { Link } from "react-router-dom";
+import search from "./search.png";
+import { useState } from "react";
+import Lecteur from "../listContenaire/Lecteur";
 
 const EnTete = () => {
+  const [text, setText] = useState("");
+
   return (
     <div className="Header-cotenair">
       <div className="logo">
@@ -13,8 +18,19 @@ const EnTete = () => {
         <div className="profil">
           <img src={logo} />
         </div>
+
         <div className="barre-de-recherche">
-          <input type="text" placeholder="Rechercher"></input>
+          <input
+            type="text"
+            placeholder="Rechecher"
+            onChange={(e) => setText(e.target.value)}
+            value={text}
+          ></input>
+          <Link to={`/result/${text}`}>
+            <button onClick={<Lecteur />}>
+              <img className="search" src={search} />
+            </button>
+          </Link>
         </div>
       </div>
     </div>

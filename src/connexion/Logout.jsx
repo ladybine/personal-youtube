@@ -19,17 +19,11 @@ function Logout() {
       console.log("User signed out.");
     });
   };
-  /* 
-    const onSuccess= ()=>{
-        console.log('Log out successfull')
-    } */
+
   return (
     <div id="signOutButton" onClick={signOut}>
       Logout
-      {/*  <GoogleLogout
-            clientId={clienId}
-            buttonText='Logout'
-            onLogoutSuccess={onSuccess}/> */}
+    
     </div>
   );
 }

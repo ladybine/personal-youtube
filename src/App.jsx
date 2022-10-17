@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDom from "react-dom/client";
 import "./App.css";
-/* import ScrenLike from "./guide/ScrenLike"; */
+
 import { gapi, loadAuth2 } from "gapi-script";
 import { useEffect, useState } from "react";
 import LoginAccueil from "./connexion/LoginAccueil";
@@ -9,9 +9,11 @@ import { Router, Routes, Route } from "react-router-dom";
 import Screen from "./Screen";
 import { userContext } from "./connexion/ContextLogin";
 import ChannelComponent from "./channel/ChannelComponent";
-//import Video from "./Video";
+
 import VideoVue from "./listContenaire/VideoVue";
 import Player from "./channel/Player";
+import Lecteur from "./listContenaire/Lecteur";
+import EnTete from "./header/EnTete";
 const clienId =
   "515896933221-cgpvtouavfnu5c8fpr025kd1qhgqstqt.apps.googleusercontent.com";
 //3"1049288288589-6p8n3lmvfhok9q1o234ojopohemf07gq.apps.googleusercontent.com";
@@ -62,10 +64,18 @@ function App() {
           }
         />
         <Route
-          path="wacth/:wacthId"
+          path="/wacth/:wacthId"
           element={
             <Screen>
               <Player />
+            </Screen>
+          }
+        />
+        <Route
+          path="/result/:searchQuery"
+          element={
+            <Screen>
+              <Lecteur />
             </Screen>
           }
         />

@@ -14,7 +14,7 @@ const Acceuil = () => {
       <Link to={`/video`}>
         <ul className="icone-acceuil">
           <img className="iconeHome" src={HouseSolid} />
-          <p /* className="acceuil" */>Acceuil</p>
+          <p >Acceuil</p>
         </ul>
       </Link>
 

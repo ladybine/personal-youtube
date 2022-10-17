@@ -15,14 +15,14 @@ const VideoVue = () => {
       .then((response) => response.json())
       .then((data) => setList(data.items));
   }, []);
-  console.log(list);
+
 
   return (
     <div className="playlist">
       <div className="flex1">
         {list?.map((list) => {
           const wacthId = list.id;
-          console.log(wacthId);
+         
           return (
             <Link to={`/wacth/${wacthId}`}>
               <div className="visuelVideo">

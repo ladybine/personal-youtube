@@ -7,11 +7,23 @@
 img {
   width: 13rem;
 }
+.barre-de-recherche img {
+  width: 1.5rem;
+}
+.barre-de-recherche {
+  display: flex;
+}
+button {
+  margin-top: 1rem;
+  width: 5rem;
+  height: 2.5rem;
+  border-radius: 10rem;
+}
 input {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 65rem;
+  width: 55rem;
   height: 2rem;
   font-size: 17px;
   background-color: #d9d9d9;

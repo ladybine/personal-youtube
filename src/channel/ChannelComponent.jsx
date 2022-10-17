@@ -1,7 +1,7 @@
 import React from "react";
 import "../abonement/Abonnement.css";
 import { useState } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import "./Channel.css";
 
@@ -37,20 +37,11 @@ const ChannelComponent = () => {
      
   };
 
-  // useEffect(() => {
-  //   fetch(
-  //     `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=25&playlistId=${canals}&key=${API}`
-  //   )
-  //     .then((response) => response.json())
-  //     .then((data) => setPlaylist(data));
-  //   console.log(playlist);
-  // }, [canals]);
+  
 
-  const nav = useNavigate();
 
-  // const handleplayer = (wacthId) => {
-  //   nav(`/wacth/:${wacthId}`);
-  // };
+
+
   return (
     <div className="playlist">
       {playlist?.map((play) => {

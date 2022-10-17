@@ -22,8 +22,7 @@ ul:hover {
   font-weight: bold;
   font-size: 16px;
 
-  /*   margin-left: 4rem; */
-  /* margin-right: 4rem; */
+
   margin-top: 4rem;
 }
 .iconeHome {
@@ -41,12 +40,11 @@ ul:hover {
   color: rgb(13, 14, 14);
   font-weight: bold;
 
-  /*  margin-left: 4rem; */
 }
 .paramettre {
   display: flex;
   color: rgb(10, 10, 10);
-  /*  margin-left: 4rem; */
+ 
   gap: 1rem;
   font-weight: bold;
   margin-bottom: 2rem;

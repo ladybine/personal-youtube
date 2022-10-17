@@ -18,9 +18,11 @@
   width: 20rem;
 }
 .reading {
+  
   width: 50%;
   height: 30rem;
 }
+
 .flex1 {
   display: flex;
   flex-wrap: wrap;
