@@ -6,25 +6,9 @@ body {
   gap: 3rem;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
   body {
-    background-color: #f0e8e8;
-  }
-  .kk {
-    width: 8rem;
+    background-color: #221d1d;;
   }
 
-
-  .logo img {
-    width: 3rem;
-  }
-  .barre-de-recherche input {
-    width: 6rem;
-    height: 1rem;
-    margin-top: 1rem;
-  }
-
-  .contenaire-videos .tt .video {
-    width: 8rem;
-  }
 }

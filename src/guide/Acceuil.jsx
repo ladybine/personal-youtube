@@ -24,7 +24,7 @@ const Acceuil = () => {
       </ul>
       <ul className="paramettre">
         <img className="icone-paramettre" src={Vector2} />
-        <p>paramettre</p>
+        <p>paramètre</p>
       </ul>
 
       <div>

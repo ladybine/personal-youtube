@@ -2,7 +2,6 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import "./Channel.css";
 
-
 const Player = () => {
   const { wacthId } = useParams();
   return (
@@ -16,7 +15,6 @@ const Player = () => {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
       ></iframe>
-     
     </div>
   );
 };

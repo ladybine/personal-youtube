@@ -8,6 +8,7 @@ import Lecteur from "../listContenaire/Lecteur";
 
 const EnTete = () => {
   const [text, setText] = useState("");
+  const profil = localStorage.getItem("profilUser");
 
   return (
     <div className="Header-cotenair">
@@ -16,7 +17,7 @@ const EnTete = () => {
       </div>
       <div className="profil-barre">
         <div className="profil">
-          <img src={logo} />
+          <img src={profil} />
         </div>
 
         <div className="barre-de-recherche">

@@ -45,8 +45,10 @@ function Login() {
     //console.log(user.xc.access_token);
     localStorage.setItem("token", user.xc.access_token);
     setUserToken(user.xc.access_token);
+    const profileImg = user.getBasicProfile().getImageUrl();
+    localStorage.setItem("profilUser", profileImg);
     nav("/home");
-    console.log(user);
+    console.log(profileImg);
   };
 
   return (

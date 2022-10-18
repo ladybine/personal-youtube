@@ -25,7 +25,6 @@ ul:hover {
   width: 20%;
   height: 20%;
   border-radius: 50%;
- 
 }
 .affiche-chaine p {
   font-size: 0.7rem;
@@ -39,4 +38,22 @@ a {
   text-decoration: none;
   color: black;
   font-size: 0.7rem;
+}
+@media screen and (max-width: 768px) {
+  .liste-abonement {
+    margin-top: 2rem;
+    padding: 10px;
+    margin-left: 1rem;
+  }
+  .border {
+    width: 7rem;
+  }
+  .affiche-chaine img {
+    width: 17%;
+    margin-top: 0.4rem;
+  }
+  .affiche-chaine p {
+    font-size: 0.6rem;
+    margin-left: 0.5rem;
+  }
 }
