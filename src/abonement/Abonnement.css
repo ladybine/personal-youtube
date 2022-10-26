@@ -39,21 +39,37 @@ a {
   color: black;
   font-size: 0.7rem;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 425px) {
   .liste-abonement {
     margin-top: 2rem;
     padding: 10px;
-    margin-left: 1rem;
+    margin-left: -0.3rem;
+    font-size:11px;
   }
   .border {
-    width: 7rem;
+    width: 4rem;
+  }
+  .affiche-chaine{
+    display:flex;
+    flex-direction:column-reverse;
+   margin-left:-2rem;
+    justify-content:center;
+    text-align:center;
+    align-items:center;
+   
   }
   .affiche-chaine img {
     width: 17%;
-    margin-top: 0.4rem;
+    margin-top:0.5rem;
+
   }
   .affiche-chaine p {
+    width:1.5rem;
+    height:2rem;
     font-size: 0.6rem;
-    margin-left: 0.5rem;
+    text-align:center;
+    margin-left:-0.6rem;
+    margin-bottom:0.7rem;
+   
   }
 }

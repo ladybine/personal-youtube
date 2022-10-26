@@ -6,8 +6,9 @@ La plateforme doit :
 
 - Afficher les dernières vidéos publiées par les chaînes auxquelles l'utilisateur connecté est abonné
 - Proposer un champ de recherche qui permet de taper le titre d’une vidéo
-- Donner aux utilisateurs la possibilité de regarder une vidéo 
-Critères d’évaluation
+- Donner aux utilisateurs la possibilité de regarder une vidéo
+  
+## Critères d’évaluation
 
 Le projet sera évalué sur base de :
 - L’UI/UX.

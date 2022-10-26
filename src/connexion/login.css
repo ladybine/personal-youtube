@@ -43,3 +43,34 @@
   justify-content: center;
   padding-bottom: 4rem;
 }
+@media screen and (max-width:425px){
+  .block-login{
+    width: 10rem;
+height:6rem;
+    margin:3rem;
+     margin-top: 7rem;
+  }
+  .logo1{
+    margin-top:3rem;
+  }
+  #signUpButton{
+    width:13rem;
+    height:4rem;
+    margin-left:-1rem;
+    margin-top:-3rem;
+
+  }
+  #signUpButton img {
+    width:1rem;
+  }
+  #signUpButton p{
+      margin-right: 1rem;
+  font-size: 11px;
+  font-weight: bold;
+  }
+  #signUpButton img{
+margin-top:1.3rem;
+    
+  }
+}
+

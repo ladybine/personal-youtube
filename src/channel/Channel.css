@@ -30,10 +30,13 @@
   width: 65rem;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 425px) {
+  .playlist{
+    width:10rem
+  }
   .flex1 {
-    width: 30rem;
-    gap: 1.5rem;
+    width: 10rem;
+    gap: 1rem;
   }
   .visuelVideo img {
     width: 13rem;
