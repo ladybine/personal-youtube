@@ -6,17 +6,23 @@ import Vector2 from "./Vector2.svg";
 import Abonnement from "../abonement/Abonnement";
 import Logout from "../connexion/Logout";
 import Like from "./Like";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Acceuil = () => {
+  let activeStyle = {
+    background: "#D0383C",
+  };
   return (
     <div className="Accueil-gauche">
-      <Link to={`/video`}>
+      <NavLink
+        to={`/video`}
+        end
+      >
         <ul className="icone-acceuil">
           <img className="iconeHome" src={HouseSolid} />
-          <p >Acceuil</p>
+          <p>Acceuil</p>
         </ul>
-      </Link>
+      </NavLink>
 
       <ul className="singup">
         <img className="icon-singup" src={Vector} />

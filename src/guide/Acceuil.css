@@ -10,8 +10,11 @@
 ul:hover {
   background-color: #a81818;
   color: white;
-
   cursor: pointer;
+}
+.active {
+  background-color: #a81818;
+  height: 70%;
 }
 .icone-acceuil {
   display: flex;

@@ -68,3 +68,9 @@ input {
     margin-bottom: 0.5rem;
   }
 }
+@media screen and (min-width=425px) {
+  img {
+    width: 3rem;
+    
+  }
+}
