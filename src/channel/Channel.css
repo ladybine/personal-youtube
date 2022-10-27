@@ -31,17 +31,30 @@
 }
 
 @media screen and (max-width: 425px) {
-  .playlist{
-    width:10rem
+  .playlist {
+    display: flex;
+    flex-direction: column;
+    width: 10rem;
   }
   .flex1 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 8rem;
     width: 10rem;
     gap: 1rem;
   }
   .visuelVideo img {
-    width: 13rem;
+    width: 20rem;
+    margin-left: 1rem;
+  }
+  .reading {
+    width: 80%;
+    height: 60%;
+    margin-top: 8rem;
+    margin-left: 2.5rem;
   }
   .playlistTitre {
-    width: 13rem;
+    width: 15rem;
+    margin-left: 1rem;
   }
 }

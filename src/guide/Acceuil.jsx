@@ -5,7 +5,7 @@ import Vector from "./Vector.svg";
 import Vector2 from "./Vector2.svg";
 import Abonnement from "../abonement/Abonnement";
 import Logout from "../connexion/Logout";
-import Like from "./Like";
+
 import { NavLink } from "react-router-dom";
 
 const Acceuil = () => {

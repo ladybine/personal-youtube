@@ -5,21 +5,13 @@
   font-size: 1rem;
   background-color: #d9d9d9;
   margin-left: 1rem;
-  position: sticky;
 }
-/*ul:hover {
+ul:hover {
   background-color: #a81818;
   color: white;
   cursor: pointer;
-<<<<<<< HEAD
 }
-.active {
-  background-color: #a81818;
-  height: 70%;
-}
-=======
-}*/
->>>>>>> cf65fd1c4e1720ab06fa7b0d403b9af94304bd31
+
 .icone-acceuil {
   display: flex;
   flex-direction: row;
@@ -60,21 +52,24 @@
 @media screen and (max-width: 425px) {
   .Accueil-gauche {
     width: 6rem;
-    height:70rem;
+    height: 70rem;
+    position: fixed;
+    z-index: 1;
+    overflow-y: auto;
+    margin-top: 6rem;
   }
-  .icone-acceuil{
-    display:flex;
-    flex-direction:column;
-  text-decoration:none;
-    margin-top:1rem;
-        justify-content:center;
-    align-items:center;
-     text-align:center;
-    margin-left:-0.7rem;
-    
+  .icone-acceuil {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    margin-top: 1rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: -0.7rem;
   }
   .iconeHome {
-  display:none;
+    display: none;
   }
   .icone-acceuil {
     width: 1rem;
@@ -82,13 +77,13 @@
     gap: 0.5rem;
   }
   .singup {
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
     width: 1rem;
-    margin-left:-2.5rem
+    margin-left: -2.5rem;
   }
   .icon-singup {
-    display:none;
+    display: none;
     width: 1rem;
   }
   .paramettre {
@@ -98,8 +93,7 @@
     gap: 0.5rem;
   }
   .icone-paramettre {
-    display:none;
+    display: none;
     width: 1rem;
   }
- 
 }
