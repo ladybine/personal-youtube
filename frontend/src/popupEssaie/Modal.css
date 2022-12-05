@@ -1,0 +1,99 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1040;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+  display: flex;
+  align-items: center;
+}
+
+.modal {
+  z-index: 100;
+  background: #fff;
+  position: relative;
+  margin: auto;
+  border-radius: 5px;
+  max-width: 500px;
+  width: 80%;
+  padding: 1rem;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-close-button {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #000;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+button.modal-toggle {
+  background-color: turquoise;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  border: none;
+}
+.modal-profil {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  width: 8rem;
+}
+.modal-profil-name {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  font-weight: bold;
+  padding-top: 10px;
+}
+.form-group input {
+  width: 26rem;
+  margin-left: auto;
+  margin-right: auto;
+  height: 1.5rem;
+  border: solid black 1.5px;
+  background-color: #fff;
+}
+.form-group input::placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+  color: #000;
+  font-size: 14px;
+  padding: auto;
+}
+.btn-valider {
+  width: 20rem;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  color: #fff;
+  background-color: #a81818;
+}

@@ -1,0 +1,76 @@
+.block-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* margin-top: 5rem;
+  margin-left: 20rem; */
+  margin: auto;
+  margin-top: 5rem;
+  border-radius: 30px;
+  background-color: #322b2b;
+  width: 40rem;
+  padding: 4rem;
+}
+
+#signUpButton {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  width: 20rem;
+  background-color: white;
+  cursor: pointer;
+}
+#signUpButton img {
+  width: 2rem;
+  margin: 1rem;
+}
+#signUpButton p {
+  margin-top: 1.5rem;
+  margin-right: 1rem;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#signOutButton {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  margin-left: 1rem;
+  padding: 18px 0px;
+}
+.logo1 {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  padding-bottom: 4rem;
+}
+@media screen and (max-width: 425px) {
+  .block-login {
+    width: 10rem;
+    height: 6rem;
+    margin: 3rem;
+    margin-top: 7rem;
+  }
+  .logo1 {
+    margin-top: 3rem;
+  }
+  #signUpButton {
+    width: 13rem;
+    height: 4rem;
+    margin-left: -1rem;
+    margin-top: -3rem;
+  }
+  #signUpButton img {
+    width: 1rem;
+  }
+  #signUpButton p {
+    margin-right: 1rem;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  #signUpButton img {
+    margin-top: 1.3rem;
+  }
+}

@@ -1,0 +1,40 @@
+body {
+  background-color: #221d1d;
+  
+}
+.kk {
+  display: flex;
+  gap: 3rem;
+}
+.menu {
+  display: none;
+}
+
+@media screen and (max-width: 425px) {
+  body {
+    background-color: #221d1d;
+    overflow-x: hidden;
+  }
+  .app {
+    width: 20rem;
+  }
+  .kk {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: 20rem;
+    overflow-x: hidden;
+  }
+  .menu {
+    display: block;
+    margin-left: 1rem;
+    z-index: 1;
+  }
+  .hamburger {
+    margin-top: rem;
+    padding-top: 4rem;
+    position: fixed;
+    z-index: 1;
+    color: white;
+  }
+}

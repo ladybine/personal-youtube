@@ -1,0 +1,108 @@
+.Accueil-gauche {
+  width: 13rem;
+  height: 100vh;
+  overflow-y: scroll;
+  text-align: left;
+  font-size: 1rem;
+  background-color: #d9d9d9;
+  margin-left: 1rem;
+  padding-left: -2rem;
+  margin-top: 8rem;
+  position: fixed;
+}
+
+ul:hover {
+  background-color: #a81818;
+  color: white;
+  cursor: pointer;
+}
+
+.icone-acceuil {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  color: rgb(12, 12, 12);
+
+  font-weight: bold;
+  font-size: 16px;
+
+  margin-top: 3rem;
+}
+.iconeHome {
+  width: 1.5rem;
+}
+.iconeHome img:hover {
+  color: white;
+}
+
+.icon-singup {
+  width: 1.5rem;
+}
+.singup {
+  display: flex;
+  color: rgb(13, 14, 14);
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+}
+.paramettre {
+  display: flex;
+  color: rgb(10, 10, 10);
+  margin-left: auto;
+  gap: 0.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+.icone-paramettre {
+  width: 1.5rem;
+}
+@media screen and (max-width: 425px) {
+  .Accueil-gauche {
+    width: 6rem;
+    height: 70rem;
+    position: fixed;
+    z-index: 1;
+    overflow-y: auto;
+    margin-top: 6rem;
+  }
+  .icone-acceuil {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    margin-top: 1rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: -0.7rem;
+  }
+  .iconeHome {
+    display: none;
+  }
+  .icone-acceuil {
+    width: 1rem;
+    margin-left: -0.5rem;
+    gap: 0.5rem;
+  }
+  .singup {
+    display: flex;
+    flex-direction: column;
+    width: 1rem;
+    margin-left: -2.5rem;
+  }
+  .icon-singup {
+    display: none;
+    width: 1rem;
+  }
+  .paramettre {
+    width: 1rem;
+    font-size: 15px;
+    margin-left: -2rem;
+    gap: 0.5rem;
+  }
+  .icone-paramettre {
+    display: none;
+    width: 1rem;
+  }
+}
