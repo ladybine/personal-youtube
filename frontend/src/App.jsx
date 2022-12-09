@@ -10,6 +10,7 @@ import { userContext } from "./connexion/ContextLogin";
 import ChannelComponent from "./channel/ChannelComponent";
 import VideoVue from "./listContenaire/VideoVue";
 import Player from "./channel/Player";
+import { createUsers } from "./services/Users";
 import Lecteur from "./listContenaire/Lecteur";
 import socketIO from "socket.io-client";
 const socket = socketIO.connect("http://localhost:3000");
@@ -20,6 +21,7 @@ const clienId =
 
 function App() {
   const [userToken, setUserToken] = useState("");
+  const [userId, setUserId] = useState("");
   useEffect(() => {
     const setAuth2 = async () => {
       const auth2 = await loadAuth2(
@@ -27,15 +29,19 @@ function App() {
         clienId,
         "https://www.googleapis.com/auth/youtube.force-ssl"
       );
+      console.log("auth2", auth2);
       if (auth2.isSignedIn.get()) {
         const userData = auth2.currentUser.get();
         setUserToken(userData.xc.access_token);
+        setUserId(userData.wt.NT);
       }
     };
     setAuth2();
   }, []);
   return (
-    <userContext.Provider value={{ userToken, setUserToken }}>
+    <userContext.Provider
+      value={{ userToken, setUserToken, userId, setUserId }}
+    >
       <Routes>
         <Route path="/" element={<LoginAccueil />} />
         <Route

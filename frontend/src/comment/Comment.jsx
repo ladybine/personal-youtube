@@ -4,17 +4,24 @@ import OnComment from "./OnComment";
 import { useEffect } from "react";
 import { useState } from "react";
 import { json } from "react-router-dom";
+import { useMemo } from "react";
+import { useContext } from "react";
+import { userContext } from "../connexion/ContextLogin";
 
 const Comment = ({ videoId, socket }) => {
+  const { userId } = useContext(userContext);
   const [commentTitle, setCommentTitle] = useState([]);
+  const [users, setUsers] = useState([]);
   const [textComment, setTextComment] = useState();
   const profil = localStorage.getItem("profilUser");
 
   useEffect(() => {
     socket.on("comment-send", (data) => {
       console.log(data);
-      console.log(commentTitle);
-      setCommentTitle([...commentTitle, data]);
+      if (data) {
+        const newCommentTitle = [...commentTitle, data];
+        setCommentTitle(newCommentTitle);
+      }
     });
     socket.on("comment-reply", (data) => {
       console.log("reply", data);
@@ -30,13 +37,28 @@ const Comment = ({ videoId, socket }) => {
       socket.removeListener("comment-send");
       socket.removeListener("comment-reply");
     };
-  }, [socket]);
+  }, [socket, commentTitle]);
 
   useEffect(() => {
     fetch("http://localhost:3000/comments")
       .then((response) => response.json())
       .then((data) => setCommentTitle(data.commentaires));
+
+    fetch("http://localhost:3000/users")
+      .then((response) => response.json())
+      .then((data) => setUsers(data.utilisateur));
   }, []);
+
+  const usersComments = useMemo(() => {
+    return commentTitle.map((comment) => {
+      return {
+        ...comment,
+        user: users?.find((user) => user.gapi_id === comment.userId),
+      };
+    });
+  }, [commentTitle, users]);
+
+  console.log("usersComments", usersComments);
 
   //const toggleCommentRes = (idComment) => {};
 
@@ -45,6 +67,7 @@ const Comment = ({ videoId, socket }) => {
       socket.emit("comment-send", {
         commentaire: textComment,
         socketID: socket.id,
+        userId,
         videoId,
       });
       setTextComment("");
@@ -77,7 +100,7 @@ const Comment = ({ videoId, socket }) => {
           Ajouter un commentaire
         </button>
       </div>
-      {commentTitle
+      {usersComments
         ?.filter((comment) => comment.videoId === videoId)
         .map((comment) => {
           return (

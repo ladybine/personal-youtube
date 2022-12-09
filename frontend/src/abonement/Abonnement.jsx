@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useContext } from "react";
 import { userContext } from "../connexion/ContextLogin";
 import { Link } from "react-router-dom";
+import Loader from "../loader/Loader";
 
 const API = "AIzaSyB-RXieYETW06rlqTtOZ3hsyoZNP4NhZgo";
 //3"AIzaSyCI24WELDXmRqPGABGo-LikcW7E-c-snSM"

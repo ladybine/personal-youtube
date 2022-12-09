@@ -1,14 +1,11 @@
 import React from "react";
 import "./Loader.css";
+import loader from "../../loader.gif";
 const Loader = () => {
   return (
     <div className="position-load">
-      <div className="lds-ellipsis ">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+     {/*  <img className="lds-text" src={loader} /> */}
+      <div className="lds-text">Chargement...</div>
     </div>
   );
 };

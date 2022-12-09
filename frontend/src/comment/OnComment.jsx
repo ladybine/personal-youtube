@@ -2,7 +2,6 @@ import React from "react";
 import thumbsUp from "./thumbs-up.svg";
 import thumbsDown from "./thumbs-down.svg";
 import { useState } from "react";
-import { useEffect } from "react";
 
 const profil = localStorage.getItem("profilUser");
 const OnComment = ({ comment, socket }) => {
@@ -11,10 +10,11 @@ const OnComment = ({ comment, socket }) => {
     setOpenCommentRes((value) => !value);
     console.log(openCommentRes);
   };
+
   return (
     <div>
       <div className="show-comment">
-        <img className="profil-comment" src={profil} />
+        <img className="profil-comment" src={comment?.user?.image} />
         <p>{comment.commentaire}</p>
       </div>
       <div className="note-comment">
@@ -82,10 +82,10 @@ const OpenCommentRes = ({ trigger, comment, socket }) => {
         {comment.subcomments.map((subcomment) => (
           <React.Fragment key={subcomment._id}>
             <div className="show-comment">
-                 <img className="profil-comment" src={profil} /> 
+              <img className="profil-comment" src={profil} />
               <p>{subcomment.commentaire}</p>
             </div>
-             <div className="note-subComment">
+            <div className="note-subComment">
               <div className="thup-subComment">
                 <img className="thup" src={thumbsUp} />
                 <p>12</p>
@@ -94,7 +94,7 @@ const OpenCommentRes = ({ trigger, comment, socket }) => {
                 <img className="thDown" src={thumbsDown} />
                 <p>12</p>
               </div>
-            </div> 
+            </div>
           </React.Fragment>
         ))}
       </p>

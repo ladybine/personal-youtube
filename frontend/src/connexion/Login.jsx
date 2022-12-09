@@ -3,11 +3,12 @@ import { gapi, loadAuth2 } from "gapi-script";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { userContext } from "./ContextLogin";
+import { createUsers } from "../services/Users";
 import "./login.css";
 import google from "./google.png";
 
 function Login() {
-  const { userToken, setUserToken } = useContext(userContext);
+  const { userToken, setUserToken, setUserId } = useContext(userContext);
   const clienId =
     "515896933221-cgpvtouavfnu5c8fpr025kd1qhgqstqt.apps.googleusercontent.com";
   //3 "1049288288589-6p8n3lmvfhok9q1o234ojopohemf07gq.apps.googleusercontent.com";
@@ -41,12 +42,21 @@ function Login() {
       }
     );
   };
-  const updateUser = (user) => {
+  const updateUser = async (user) => {
     //console.log(user.xc.access_token);
     localStorage.setItem("token", user.xc.access_token);
     setUserToken(user.xc.access_token);
+    setUserId(user.wt.NT);
     const profileImg = user.getBasicProfile().getImageUrl();
     localStorage.setItem("profilUser", profileImg);
+    const userData = user;
+
+    const data = await createUsers(
+      userData.wt.uT,
+      userData.wt.rV,
+      userData.wt.NT,
+      userData.wt.hK
+    );
     nav("/home");
     console.log(profileImg);
   };
