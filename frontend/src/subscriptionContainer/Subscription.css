@@ -1,4 +1,4 @@
-.liste-abonement {
+.subscription-list {
   color: rgb(13, 14, 14);
   font-weight: bold;
   margin-top: 2rem;
@@ -14,7 +14,7 @@ ul:hover {
   color: white;
   background-color: #a81818;
 }
-.affiche-chaine {
+.oneChannel {
   display: flex;
   flex-direction: row-reverse;
   width: 8rem;
@@ -25,12 +25,12 @@ ul:hover {
 
   /* margin: auto; */
 }
-.affiche-chaine img {
+.oneChannel img {
   width: 20%;
   height: 20%;
   border-radius: 50%;
 }
-.affiche-chaine p {
+.oneChannel p {
   font-size: 0.7rem;
   /* height: 1rem; */
   /* width: 45rem; */
@@ -43,7 +43,7 @@ a {
   font-size: 0.7rem;
 }
 @media screen and (max-width: 425px) {
-  .liste-abonement {
+  .subscription-list {
     margin-top: 2rem;
     padding: 10px;
     margin-left: -0.3rem;
@@ -52,7 +52,7 @@ a {
   .border {
     width: 4rem;
   }
-  .affiche-chaine {
+  .oneChannel {
     display: flex;
     flex-direction: column-reverse;
     margin-left: -2rem;
@@ -60,11 +60,11 @@ a {
     text-align: center;
     align-items: center;
   }
-  .affiche-chaine img {
+  .oneChannel img {
     width: 17%;
     margin-top: 0.5rem;
   }
-  .affiche-chaine p {
+  .oneChannel p {
     width: 1.5rem;
     height: 2rem;
     font-size: 0.6rem;

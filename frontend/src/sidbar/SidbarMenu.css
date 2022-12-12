@@ -1,4 +1,4 @@
-.Accueil-gauche {
+.sidbar-position {
   width: 13rem;
   height: 100vh;
   overflow-y: scroll;
@@ -59,7 +59,7 @@ ul:hover {
   width: 1.5rem;
 }
 @media screen and (max-width: 425px) {
-  .Accueil-gauche {
+  .sidbar-position {
     width: 6rem;
     height: 70rem;
     position: fixed;

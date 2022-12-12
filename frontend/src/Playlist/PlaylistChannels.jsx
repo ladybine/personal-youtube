@@ -1,11 +1,11 @@
 import React from "react";
-import "../abonement/Abonnement.css";
+import "../subscriptionContainer/Subscription.css";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import "./Channel.css";
 
-const ChannelComponent = () => {
+const PlaylistChannels = () => {
   const API = "AIzaSyB-RXieYETW06rlqTtOZ3hsyoZNP4NhZgo";
   //3"AIzaSyCI24WELDXmRqPGABGo-LikcW7E-c-snSM";
   //1 "AIzaSyCWbRRgiUGXc5gjERPSmOtx5OqMDJxcD2g";
@@ -42,14 +42,14 @@ const ChannelComponent = () => {
         const wacthId = play.snippet.resourceId.videoId;
 
         return (
-          <Link  key={index} style={{ width: "20%" }} to={`/wacth/${wacthId}`}>
-            <div className="visuelVideo">
+          <Link key={index} style={{ width: "20%" }} to={`/wacth/${wacthId}`}>
+            <div className="video-list">
               <img
-                className="videoDeChAbonné"
+                className="subscription-video"
                 src={play?.snippet?.thumbnails?.medium?.url}
               />
-              <div className="playlistTitre">
-                <p className="titre-video">{play?.snippet?.title}</p>
+              <div className="playlist-title">
+                <p className="video-title">{play?.snippet?.title}</p>
               </div>
             </div>
           </Link>
@@ -58,4 +58,4 @@ const ChannelComponent = () => {
     </div>
   );
 };
-export default ChannelComponent;
+export default PlaylistChannels;

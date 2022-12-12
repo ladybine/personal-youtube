@@ -3,15 +3,15 @@ import ReactDom from "react-dom/client";
 import "./App.css";
 import { gapi, loadAuth2 } from "gapi-script";
 import { useEffect, useState } from "react";
-import LoginAccueil from "./connexion/LoginAccueil";
+import LoginHome from "./connexion/LoginHome";
 import { Router, Routes, Route } from "react-router-dom";
 import Screen from "./Screen";
 import { userContext } from "./connexion/ContextLogin";
-import ChannelComponent from "./channel/ChannelComponent";
-import VideoVue from "./listContenaire/VideoVue";
-import Player from "./channel/Player";
+import PlaylistChannels from "./Playlist/PlaylistChannels";
+import PopularVideo from "./popularAndVideoSearch/PopularVideo";
+import Player from "./Playlist/Player";
 import { createUsers } from "./services/Users";
-import Lecteur from "./listContenaire/Lecteur";
+import SearchComponent from "./popularAndVideoSearch/SearchComponent";
 import socketIO from "socket.io-client";
 const socket = socketIO.connect("http://localhost:3000");
 const clienId =
@@ -43,12 +43,12 @@ function App() {
       value={{ userToken, setUserToken, userId, setUserId }}
     >
       <Routes>
-        <Route path="/" element={<LoginAccueil />} />
+        <Route path="/" element={<LoginHome />} />
         <Route
           path="/home"
           element={
             <Screen>
-              <VideoVue />
+              <PopularVideo />
             </Screen>
           }
         />
@@ -56,7 +56,7 @@ function App() {
           path="/listVideo/:channelId"
           element={
             <Screen>
-              <ChannelComponent />
+              <PlaylistChannels />
             </Screen>
           }
         />
@@ -64,7 +64,7 @@ function App() {
           path="/video"
           element={
             <Screen>
-              <VideoVue />
+              <PopularVideo />
             </Screen>
           }
         />
@@ -80,7 +80,7 @@ function App() {
           path="/result/:searchQuery"
           element={
             <Screen>
-              <Lecteur />
+              <SearchComponent />
             </Screen>
           }
         />

@@ -3,13 +3,13 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Loader from "../loader/Loader";
-import "../channel/Channel.css";
+import "../Playlist/Channel.css";
 
 const API = "AIzaSyB-RXieYETW06rlqTtOZ3hsyoZNP4NhZgo";
 
 const fetchUrl4 = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=25&regionCode=US&key=${API}`;
 
-const VideoVue = () => {
+const PopularVideo = () => {
   const [list, setList] = useState();
   const [loader, setloader] = useState(true);
   useEffect(() => {
@@ -22,7 +22,7 @@ const VideoVue = () => {
 
   return (
     <div className="playlist">
-      <div className="flex1">
+      <div className="video-container">
         {loader ? (
           <Loader />
         ) : (
@@ -34,12 +34,12 @@ const VideoVue = () => {
                 /* style={{ width: "23%" }} */ to={`/wacth/${wacthId}`}
                 key={index}
               >
-                <div className="visuelVideo">
+                <div className="video-list">
                   <img src={list?.snippet?.thumbnails?.medium?.url} />
 
-                  <div className="playlistTitre">
-                    <p className="titre-video">{list?.snippet?.title}</p>
-                    <p className="titre-video">
+                  <div className="playlist-title">
+                    <p className="video-title">{list?.snippet?.title}</p>
+                    <p className="video-title">
                       {list.statistics.commentCount} vue
                     </p>
                   </div>
@@ -53,4 +53,4 @@ const VideoVue = () => {
   );
 };
 
-export default VideoVue;
+export default PopularVideo;

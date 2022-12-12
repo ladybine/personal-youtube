@@ -14,7 +14,7 @@
  
 }
 
-.titre-video {
+.video-title {
   font-size: 1rem;
   font-family: "Courier New", Courier, monospace;
 }
@@ -32,7 +32,7 @@
   display: flex;
   margin-bottom: 3rem;
 }
-.visuelVideo img {
+.video-list img {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;

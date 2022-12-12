@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import "./Channel.css";
-import Comment from "../comment/Comment";
+import CommentContainer from "../comment/CommentContainer";
 
 const Player = ({ socket }) => {
   const { wacthId } = useParams();
@@ -18,7 +18,7 @@ const Player = ({ socket }) => {
           allowfullscreen
         ></iframe>
       </div>
-      <Comment videoId={wacthId} socket={socket} />
+      <CommentContainer videoId={wacthId} socket={socket} />
     </div>
   );
 };

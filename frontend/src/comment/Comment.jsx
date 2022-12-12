@@ -1,115 +1,106 @@
 import React from "react";
-import "./comment.css";
-import OnComment from "./OnComment";
-import { useEffect } from "react";
+import thumbsUp from "./thumbs-up.svg";
+import thumbsDown from "./thumbs-down.svg";
 import { useState } from "react";
-import { json } from "react-router-dom";
-import { useMemo } from "react";
-import { useContext } from "react";
-import { userContext } from "../connexion/ContextLogin";
 
-const Comment = ({ videoId, socket }) => {
-  const { userId } = useContext(userContext);
-  const [commentTitle, setCommentTitle] = useState([]);
-  const [users, setUsers] = useState([]);
-  const [textComment, setTextComment] = useState();
-  const profil = localStorage.getItem("profilUser");
+const profil = localStorage.getItem("profilUser");
+const Comment = ({ comment, socket }) => {
+  const [openCommentRes, setOpenCommentRes] = useState(false);
+  const showSubComment = () => {
+    setOpenCommentRes((value) => !value);
+    console.log(openCommentRes);
+  };
 
-  useEffect(() => {
-    socket.on("comment-send", (data) => {
-      console.log(data);
-      if (data) {
-        const newCommentTitle = [...commentTitle, data];
-        setCommentTitle(newCommentTitle);
-      }
-    });
-    socket.on("comment-reply", (data) => {
-      console.log("reply", data);
-      const newCommentTitle = commentTitle.map((comment) => {
-        if (comment.id === data.id) return data;
-        return comment;
-      });
+  return (
+    <div>
+      <div className="show-comment">
+        <img className="profil-comment" src={comment?.user?.image} />
+        <p>{comment.commentaire}</p>
+      </div>
+      <div className="note-comment">
+        <div className="thumbs-Up">
+          <img className="th-Up" src={thumbsUp} />
+          <p>12</p>
+        </div>
+        <div className="thumbs-Down">
+          <img className="th-Down" src={thumbsDown} />
+          <p>12</p>
+          <div>
+            <p
+              className="response"
+              active="true"
+              onClick={() => showSubComment()}
+            >
+              Répondre
+            </p>
+          </div>
+        </div>
+      </div>
+      <OpenCommentRes
+        trigger={openCommentRes}
+        comment={comment}
+        socket={socket}
+      />
+    </div>
+  );
+};
 
-      setCommentTitle(newCommentTitle);
-    });
-
-    return () => {
-      socket.removeListener("comment-send");
-      socket.removeListener("comment-reply");
-    };
-  }, [socket, commentTitle]);
-
-  useEffect(() => {
-    fetch("http://localhost:3000/comments")
-      .then((response) => response.json())
-      .then((data) => setCommentTitle(data.commentaires));
-
-    fetch("http://localhost:3000/users")
-      .then((response) => response.json())
-      .then((data) => setUsers(data.utilisateur));
-  }, []);
-
-  const usersComments = useMemo(() => {
-    return commentTitle.map((comment) => {
-      return {
-        ...comment,
-        user: users?.find((user) => user.gapi_id === comment.userId),
-      };
-    });
-  }, [commentTitle, users]);
-
-  console.log("usersComments", usersComments);
-
-  //const toggleCommentRes = (idComment) => {};
+const OpenCommentRes = ({ trigger, comment, socket }) => {
+  const [subcommentText, setSubcommentText] = useState();
+  const commentId = comment._id;
 
   const post = () => {
-    if (textComment.trim()) {
-      socket.emit("comment-send", {
-        commentaire: textComment,
+    if (subcommentText.trim()) {
+      socket.emit("comment-reply", {
+        commentaire: subcommentText,
         socketID: socket.id,
-        userId,
-        videoId,
+        commentId,
       });
-      setTextComment("");
+      setSubcommentText("");
     }
-    /* fetch("http://localhost:3000/comments/comment", {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json", */
-    // 'Content-Type': 'application/x-www-form-urlencoded',
-    /*    },
-      body: JSON.stringify({ commentaire: textComment, videoId }),
-    })
-      .then((response) => response.json())
-      .then((data) => setTextComment(data.commentaire));*/
   };
-  return (
-    <div className="bloc-comment">
-      <div>
-        <h3>Je suis le titre</h3>
-      </div>
+
+  // alert(JSON.stringify(comment));
+
+  return trigger ? (
+    <div className="sub-comment">
       <div className="profil-input">
-        <img className="profilComment" src={profil} />
+        <img className="profil-comment" src={profil} />
         <input
-          className="input-comment"
-          value={textComment}
-          onChange={(e) => setTextComment(e.target.value)}
-          placeholder="Laisser un commentaire"
+          className="input-subcomment"
+          type="text"
+          value={subcommentText}
+          onChange={(e) => setSubcommentText(e.target.value)}
+          placeholder="laisser un commentaire"
         />
         <button className="send-comment" onClick={post}>
-          Ajouter un commentaire
+          Répondre
         </button>
       </div>
-      {usersComments
-        ?.filter((comment) => comment.videoId === videoId)
-        .map((comment) => {
-          return (
-            <div key={comment._id}>
-              <OnComment comment={comment} socket={socket} />
+
+      <p>
+        {comment.subcomments.map((subcomment) => (
+          <React.Fragment key={subcomment._id}>
+            <div className="show-comment">
+              <img className="profil-comment" src={profil} />
+              <p>{subcomment.commentaire}</p>
             </div>
-          );
-        })}
+            <div className="note-subComment">
+              <div className="thup-subComment">
+                <img className="thup" src={thumbsUp} />
+                <p>12</p>
+              </div>
+              <div className="thdown-subomment">
+                <img className="thDown" src={thumbsDown} />
+                <p>12</p>
+              </div>
+            </div>
+          </React.Fragment>
+        ))}
+      </p>
     </div>
+  ) : (
+    ""
   );
 };
 

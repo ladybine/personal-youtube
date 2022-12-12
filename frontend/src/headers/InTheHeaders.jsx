@@ -1,28 +1,27 @@
 import React from "react";
-import "./EnTete.css";
+import "./IntheHeaders.css";
 import logo from "./logo.png";
 import { Link } from "react-router-dom";
 import search from "./search.png";
 import { useState } from "react";
-import Lecteur from "../listContenaire/Lecteur";
 import { Tooltip, Whisper } from "rsuite";
-import useModal from "../popupEssaie/useModal";
-import Modal from "../popupEssaie/Modal";
-import "../popupEssaie/Modal.css";
-import Vector from "./Vector.svg";
+import useModal from "../modal/useModal";
+import Modal from "../modal/Modal";
+import "../modal/Modal.css";
+import SearchComponent from "../popularAndVideoSearch/SearchComponent";
 
-const EnTete = () => {
+const InTheHeaders = () => {
   const [text, setText] = useState("");
   const profil = localStorage.getItem("profilUser");
   const { isShowing: isLoginFormShowed, toggle: toggleLoginForm } = useModal();
 
   return (
     <div className="header-back">
-      <div className="Header-cotenair">
+      <div className="Header-container">
         <div className="logo">
           <img src={logo}></img>
         </div>
-        <div className="profil-barre">
+        <div className="profil-container">
           {/*  essaie du popup */}
           <div className="profil">
             <Tooltip title="Modifier votre profil" arrow placement="top">
@@ -74,7 +73,7 @@ const EnTete = () => {
             {/* fin du popu */}
           </div>
 
-          <div className="barre-de-recherche">
+          <div className="search-bar">
             <input
               type="text"
               placeholder="Rechecher"
@@ -82,7 +81,7 @@ const EnTete = () => {
               value={text}
             ></input>
             <Link to={`/result/${text}`}>
-              <button className="btn-search" onClick={<Lecteur />}>
+              <button className="btn-search" onClick={<SearchComponent />}>
                 <img className="search" src={search} />
               </button>
             </Link>
@@ -93,4 +92,4 @@ const EnTete = () => {
   );
 };
 
-export default EnTete;
+export default InTheHeaders;

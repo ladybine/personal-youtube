@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
-import EnTete from "./header/EnTete";
-import Acceuil from "./guide/Acceuil";
-import VideoVue from "./listContenaire/VideoVue";
+import InTheHeaders from "./headers/InTheHeaders";
+import SidbarMenu from "./sidbar/SidbarMenu";
+import VideoVue from "./popularAndVideoSearch/PopularVideo";
 //import Video from "./Video";
 import { MdMenu } from "react-icons/md";
 import { useState } from "react";
@@ -17,7 +17,7 @@ const Screen = ({ children }) => {
   return (
     <div className="app">
       <div className="yy">
-        <EnTete />
+        <InTheHeaders />
       </div>
       <div className="menu">
         <MdMenu
@@ -31,7 +31,7 @@ const Screen = ({ children }) => {
       </div>
 
       <div className="kk">
-        {(isDesktop || openSideBar) && <Acceuil />}
+        {(isDesktop || openSideBar) && <SidbarMenu />}
         {children}
       </div>
     </div>
