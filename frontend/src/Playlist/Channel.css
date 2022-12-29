@@ -11,6 +11,16 @@
   font-size: 1rem;
   gap: 1rem;
   margin-left: 2rem;
+
+  transition: background-color 1s ease-out 50ms;
+}
+.video-list:hover {
+  background-color: #221d1d;
+  transform: scale(1.1);
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px rgb(204, 199, 199), 0px 0px 20px rgb(204, 199, 199);
+  /*  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px; */
 }
 .playlist-title {
   width: 10rem;
@@ -24,6 +34,7 @@
 
   width: 13rem;
 }
+
 .container__reading {
   display: flex;
   flex-direction: column;
@@ -36,6 +47,7 @@
 }
 .reading {
   width: 55%;
+
   height: 25rem;
   padding-top: 10rem;
 }
@@ -46,6 +58,11 @@
   height: 20rem;
   /* justify-content: left; */
   margin-right: auto;
+}
+.titleofvideoreaging {
+  color: white;
+  font-weight: bold;
+  font-size: 21px;
 }
 
 .video-container {

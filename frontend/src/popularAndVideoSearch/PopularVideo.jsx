@@ -6,6 +6,7 @@ import Loader from "../loader/Loader";
 import "../Playlist/Channel.css";
 
 const API = "AIzaSyB-RXieYETW06rlqTtOZ3hsyoZNP4NhZgo";
+/* const API = import.meta.env.VITE_APP_API; */
 
 const fetchUrl4 = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=25&regionCode=US&key=${API}`;
 
@@ -23,31 +24,32 @@ const PopularVideo = () => {
   return (
     <div className="playlist">
       <div className="video-container">
-        {loader ? (
-          <Loader />
-        ) : (
-          list?.map((list, index) => {
-            const wacthId = list.id;
+        {loader
+          ? [...Array(25)].map(() => {
+              return <Loader />;
+            })
+          : list?.map((list, index) => {
+              const wacthId = list.id;
+              const videoTitle = list?.snippet?.title;
 
-            return (
-              <Link
-                /* style={{ width: "23%" }} */ to={`/wacth/${wacthId}`}
-                key={index}
-              >
-                <div className="video-list">
-                  <img src={list?.snippet?.thumbnails?.medium?.url} />
+              return (
+                <Link
+                  /* style={{ width: "23%" }} */ to={`/wacth/${wacthId}`}
+                  key={index}
+                >
+                  <div className="video-list">
+                    <img src={list?.snippet?.thumbnails?.medium?.url} />
 
-                  <div className="playlist-title">
-                    <p className="video-title">{list?.snippet?.title}</p>
-                    <p className="video-title">
-                      {list.statistics.commentCount} vue
-                    </p>
+                    <div className="playlist-title">
+                      <p className="video-title">{list?.snippet?.title}</p>
+                      <p className="video-title">
+                        {list.statistics.commentCount} vues
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            );
-          })
-        )}
+                </Link>
+              );
+            })}
       </div>
     </div>
   );

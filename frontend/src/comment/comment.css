@@ -11,6 +11,7 @@
 }
 .profil-input {
   display: flex;
+  margin-top: 2.5rem;
 }
 .input-comment {
   width: 15rem;
@@ -45,6 +46,7 @@
   background-color: #a81818;
   border: none;
   color: white;
+  border-radius: 2px;
 }
 .show-comment {
   display: flex;
@@ -76,6 +78,7 @@
 }
 .response:hover {
   color: #a81818;
+  border-radius: 2px;
 }
 .response p:active {
   background-color: #a81818;
@@ -90,6 +93,7 @@
   border: solid 1px white;
   height: 1rem;
   margin-left: -0.2rem;
+  color: white;
 }
 .note-subComment {
   display: flex;

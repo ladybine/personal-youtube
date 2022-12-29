@@ -1,8 +1,21 @@
-.lds-text {
+.video {
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 13rem;
+  margin-left: 2rem;
+}
+.img-canal {
   display: flex;
-  font-weight: bold;
+  flex-direction: row-reverse;
   justify-content: center;
-  margin-left: 22rem;
-  margin-top: 10rem;
   text-align: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  gap: 2px;
+}
+.tex-skeleton {
+  width: 40%;
+  height: 1rem;
+  margin-bottom: 0.25rem;
+  border-radius: 0.125rem;
 }

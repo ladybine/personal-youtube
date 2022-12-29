@@ -17,7 +17,7 @@ const CommentContainer = ({ videoId, socket }) => {
 
   useEffect(() => {
     socket.on("comment-send", (data) => {
-      console.log(data);
+      console.log("comment-send ", data);
       if (data) {
         const newCommentTitle = [...commentTitle, data];
         setCommentTitle(newCommentTitle);
@@ -26,7 +26,7 @@ const CommentContainer = ({ videoId, socket }) => {
     socket.on("comment-reply", (data) => {
       console.log("reply", data);
       const newCommentTitle = commentTitle.map((comment) => {
-        if (comment.id === data.id) return data;
+        if (comment._id === data._id) return data;
         return comment;
       });
 
@@ -51,8 +51,15 @@ const CommentContainer = ({ videoId, socket }) => {
 
   const usersComments = useMemo(() => {
     return commentTitle.map((comment) => {
+      const subcomments = comment.subcomments.map((subcomment) => {
+        return {
+          ...subcomment,
+          user: users?.find((user) => user.gapi_id === subcomment.userId),
+        };
+      });
       return {
         ...comment,
+        subcomments,
         user: users?.find((user) => user.gapi_id === comment.userId),
       };
     });
@@ -83,10 +90,13 @@ const CommentContainer = ({ videoId, socket }) => {
       .then((response) => response.json())
       .then((data) => setTextComment(data.commentaire));*/
   };
+  console.log(usersComments);
   return (
     <div className="bloc-comment">
       <div>
-        <h3>Je suis le titre</h3>
+        <h3>
+          <div></div>
+        </h3>
       </div>
       <div className="profil-input">
         <img className="profilComment" src={profil} />

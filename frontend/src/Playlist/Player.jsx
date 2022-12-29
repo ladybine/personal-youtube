@@ -2,11 +2,25 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import "./Channel.css";
 import CommentContainer from "../comment/CommentContainer";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const Player = ({ socket }) => {
+  const API = "AIzaSyB-RXieYETW06rlqTtOZ3hsyoZNP4NhZgo";
+  const [titleVideo, setTitleVideo] = useState([]);
   const { wacthId } = useParams();
+  useEffect(() => {
+    fetch(
+      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${wacthId}&key=${API}`
+    )
+      .then((response) => response.json())
+      .then((data) => setTitleVideo(data.items));
+  }, []);
+
+
   return (
     <div className="container__reading">
+      
       <div className="reading">
         <iframe
           width="100%"
@@ -17,6 +31,11 @@ const Player = ({ socket }) => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
         ></iframe>
+        <div>
+          {titleVideo.map((title) => {
+            return <p className="titleofvideoreaging">{title?.snippet?.title}</p>;
+          })}
+        </div>
       </div>
       <CommentContainer videoId={wacthId} socket={socket} />
     </div>

@@ -5,6 +5,7 @@
   gap: 3rem;
   position: fixed;
   background-color: #221d1d;
+  z-index: 1000;
 }
 
 .logo img {
@@ -22,11 +23,11 @@
   margin-top: 1rem;
   width: 4rem;
   height: 2.5rem;
-  /* border-radius: 10rem; */
 }
 .btn-search:hover {
   background-color: #a81818;
   border: none;
+  border-radius: 2px;
 }
 input {
   display: flex;

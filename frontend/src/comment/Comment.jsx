@@ -2,6 +2,8 @@ import React from "react";
 import thumbsUp from "./thumbs-up.svg";
 import thumbsDown from "./thumbs-down.svg";
 import { useState } from "react";
+import { useContext } from "react";
+import { userContext } from "../connexion/ContextLogin";
 
 const profil = localStorage.getItem("profilUser");
 const Comment = ({ comment, socket }) => {
@@ -46,6 +48,7 @@ const Comment = ({ comment, socket }) => {
 };
 
 const OpenCommentRes = ({ trigger, comment, socket }) => {
+  const { userId } = useContext(userContext);
   const [subcommentText, setSubcommentText] = useState();
   const commentId = comment._id;
 
@@ -54,6 +57,7 @@ const OpenCommentRes = ({ trigger, comment, socket }) => {
       socket.emit("comment-reply", {
         commentaire: subcommentText,
         socketID: socket.id,
+        userId,
         commentId,
       });
       setSubcommentText("");
@@ -82,7 +86,7 @@ const OpenCommentRes = ({ trigger, comment, socket }) => {
         {comment.subcomments.map((subcomment) => (
           <React.Fragment key={subcomment._id}>
             <div className="show-comment">
-              <img className="profil-comment" src={profil} />
+              <img className="profil-comment" src={subcomment?.user?.image} />
               <p>{subcomment.commentaire}</p>
             </div>
             <div className="note-subComment">
