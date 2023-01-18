@@ -11,15 +11,16 @@
 }
 .profil-input {
   display: flex;
-  margin-top: 2.5rem;
+  margin-top: 4rem;
 }
 .input-comment {
-  width: 15rem;
+  width: 20rem;
   border: solid 1px white;
   background-color: #221d1d;
   height: 1rem;
   margin-left: -1.5rem;
   color: white;
+  padding: 12px;
 }
 
 .profilComment {
@@ -27,7 +28,8 @@
   height: 2rem;
   margin-right: 2rem;
   border-radius: 50%;
-  margin-top: 10px;
+  margin-top: 16px;
+  margin-left: 1rem;
 }
 .profil-comment {
   width: 2rem;
@@ -38,18 +40,28 @@
 }
 .send-comment {
   width: 8rem;
-  height: 1.5rem;
-  font-size: 10px;
+  height: 2.5rem;
+  font-size: 13px;
+  font-weight: bold;
   margin-top: 1rem;
+  border-radius: 30px;
+  padding: px;
 }
 .send-comment:hover {
   background-color: #a81818;
   border: none;
   color: white;
-  border-radius: 2px;
+  border-radius: 30px;
+}
+.times {
+  font-size: 12px;
+  margin-top: 18px;
+  font-weight: 100;
 }
 .show-comment {
   display: flex;
+  margin-left: 1rem;
+  gap: 10px;
 }
 .note-comment {
   display: flex;
@@ -59,13 +71,17 @@
   display: flex;
   font-weight: bold;
   margin-right: 1rem;
-  margin-left: 2.5rem;
+  margin-left: 5rem;
 }
 .th-Up {
-  width: 16px;
+  margin-top: 0.5rem;
 }
 .th-Down {
-  width: 16px;
+  margin-top: 0.5rem;
+  margin-right: 10px;
+}
+.th-Up-sub {
+  margin-left: 2rem;
 }
 
 .thumbs-Down {
@@ -73,7 +89,7 @@
   font-weight: bold;
 }
 .response {
-  margin-left: 16px;
+  margin-left: px;
   cursor: pointer;
 }
 .response:hover {
@@ -85,19 +101,28 @@
   color: white;
 }
 .sub-comment {
-  margin-left: 2rem;
+  margin-left: 3rem;
+}
+.profil-input-Res {
+  display: flex;
+  margin-top: -10px;
 }
 .input-subcomment {
-  width: 15rem;
+  width: 18rem;
   background-color: #221d1d;
   border: solid 1px white;
-  height: 1rem;
+  height: 1.5rem;
   margin-left: -0.2rem;
   color: white;
 }
 .note-subComment {
   display: flex;
   margin-left: 2rem;
+  margin-top: -1rem;
+}
+.note-subComment p {
+  margin-top: -0rem;
+  margin-right: 10px;
 }
 .thup-subComment {
   display: flex;

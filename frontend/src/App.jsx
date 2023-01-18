@@ -13,7 +13,7 @@ import Player from "./Playlist/Player";
 import { createUsers } from "./services/Users";
 import SearchComponent from "./popularAndVideoSearch/SearchComponent";
 import socketIO from "socket.io-client";
-const socket = socketIO.connect("http://localhost:3000");
+const socket = socketIO.connect(import.meta.env.VITE_APP_API_BACKEND);
 const clienId =
   "515896933221-cgpvtouavfnu5c8fpr025kd1qhgqstqt.apps.googleusercontent.com";
 //3"1049288288589-6p8n3lmvfhok9q1o234ojopohemf07gq.apps.googleusercontent.com";
@@ -22,6 +22,7 @@ const clienId =
 function App() {
   const [userToken, setUserToken] = useState("");
   const [userId, setUserId] = useState("");
+  const [userDbInfo, setUserDbInfo] = useState();
   useEffect(() => {
     const setAuth2 = async () => {
       const auth2 = await loadAuth2(
@@ -38,9 +39,30 @@ function App() {
     };
     setAuth2();
   }, []);
+
+  useEffect(() => {
+    if (userId) getUserDbInfo(userId);
+  }, [userId]);
+
+  const getUserDbInfo = (gapiId) => {
+    fetch(`http://localhost:3000/users/user/${gapiId}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setUserDbInfo(data);
+      });
+  };
+
   return (
     <userContext.Provider
-      value={{ userToken, setUserToken, userId, setUserId }}
+      value={{
+        userToken,
+        setUserToken,
+        userId,
+        setUserId,
+        userDbInfo,
+        setUserDbInfo,
+      }}
     >
       <Routes>
         <Route path="/" element={<LoginHome />} />

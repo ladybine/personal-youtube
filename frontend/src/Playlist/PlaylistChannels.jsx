@@ -7,10 +7,8 @@ import { useEffect } from "react";
 import "./Channel.css";
 
 const PlaylistChannels = () => {
-  const API = "AIzaSyB-RXieYETW06rlqTtOZ3hsyoZNP4NhZgo";
+  const API = import.meta.env.VITE_APP_API;
   const [loader, setloader] = useState(true);
-  //3"AIzaSyCI24WELDXmRqPGABGo-LikcW7E-c-snSM";
-  //1 "AIzaSyCWbRRgiUGXc5gjERPSmOtx5OqMDJxcD2g";
   const { channelId } = useParams();
   const [playlist, setPlaylist] = useState();
   const [canals, setCanals] = useState([]);

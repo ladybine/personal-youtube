@@ -14,14 +14,14 @@ const SearchComponent = () => {
   const [loader, setloader] = useState(true);
   useEffect(() => {
     fetch(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&type=video&q=${searchQuery}&safeSearch=none&key=AIzaSyCWbRRgiUGXc5gjERPSmOtx5OqMDJxcD2g`
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&type=video&q=${searchQuery}&safeSearch=none&key=${import.meta.env.VITE_APP_SEARCH_API}`
     )
       .then((response) => response.json())
       .then((data) => {
         setVideoResult(data.items), setloader(false);
       });
   }, [searchQuery]);
-
+  /* console.log(videoResult); */
   return (
     <div className="playlist">
       {loader

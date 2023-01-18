@@ -5,6 +5,7 @@ import Vector from "./Vector.svg";
 import Vector2 from "./Vector2.svg";
 import Subscription from "../subscriptionContainer/Subscription";
 import Logout from "../connexion/Logout";
+import { FaHome } from "react-icons/fa";
 
 import { NavLink } from "react-router-dom";
 
@@ -21,7 +22,7 @@ const SidbarMenu = () => {
           end
         >
           <ul className="icone-acceuil">
-            <img className="iconeHome" src={HouseSolid} />
+            <FaHome size={30} />
             <p>Acceuil</p>
           </ul>
         </NavLink>

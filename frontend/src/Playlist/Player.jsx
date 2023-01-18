@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 const Player = ({ socket }) => {
-  const API = "AIzaSyB-RXieYETW06rlqTtOZ3hsyoZNP4NhZgo";
+  const API = import.meta.env.VITE_APP_API;
   const [titleVideo, setTitleVideo] = useState([]);
   const { wacthId } = useParams();
   useEffect(() => {
@@ -17,10 +17,8 @@ const Player = ({ socket }) => {
       .then((data) => setTitleVideo(data.items));
   }, []);
 
-
   return (
     <div className="container__reading">
-      
       <div className="reading">
         <iframe
           width="100%"
@@ -33,7 +31,9 @@ const Player = ({ socket }) => {
         ></iframe>
         <div>
           {titleVideo.map((title) => {
-            return <p className="titleofvideoreaging">{title?.snippet?.title}</p>;
+            return (
+              <p className="titleofvideoreaging">{title?.snippet?.title}</p>
+            );
           })}
         </div>
       </div>

@@ -21,6 +21,7 @@
   width: 20rem;
   background-color: white;
   cursor: pointer;
+  border-radius: 30px;
 }
 #signUpButton img {
   width: 2rem;
@@ -40,7 +41,7 @@
   margin-left: 1rem;
   padding: 18px 0px;
 }
-.logo1 {
+.logo1 img {
   display: flex;
   margin: auto;
   justify-content: center;

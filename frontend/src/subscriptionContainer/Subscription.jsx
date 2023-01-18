@@ -8,9 +8,7 @@ import Loader from "../loader/Loader";
 import Skeleton from "react-loading-skeleton";
 import SkeletonCanal from "../loader/SkeletonCanal";
 
-const API = "AIzaSyB-RXieYETW06rlqTtOZ3hsyoZNP4NhZgo";
-//3"AIzaSyCI24WELDXmRqPGABGo-LikcW7E-c-snSM"
-//1"AIzaSyCWbRRgiUGXc5gjERPSmOtx5OqMDJxcD2g";
+const API = import.meta.env.VITE_APP_API;
 const fetchUrl2 = `https://youtube.googleapis.com/youtube/v3/subscriptions?part=snippet%2CcontentDetails&maxResults=10&mine=true&key=${API}`;
 const Subscription = () => {
   const [channel, setChannel] = useState([]);

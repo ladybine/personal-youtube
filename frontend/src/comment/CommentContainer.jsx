@@ -2,6 +2,7 @@ import React from "react";
 import "./comment.css";
 import Comment from "./Comment";
 import { useEffect } from "react";
+import { useRef } from "react";
 import { useState } from "react";
 import { json } from "react-router-dom";
 import { useMemo } from "react";
@@ -9,11 +10,12 @@ import { useContext } from "react";
 import { userContext } from "../connexion/ContextLogin";
 
 const CommentContainer = ({ videoId, socket }) => {
-  const { userId } = useContext(userContext);
+  const { userDbInfo, userId } = useContext(userContext);
   const [commentTitle, setCommentTitle] = useState([]);
   const [users, setUsers] = useState([]);
   const [textComment, setTextComment] = useState();
   const profil = localStorage.getItem("profilUser");
+  const lastMessageRef = useRef(null);
 
   useEffect(() => {
     socket.on("comment-send", (data) => {
@@ -48,6 +50,10 @@ const CommentContainer = ({ videoId, socket }) => {
       .then((response) => response.json())
       .then((data) => setUsers(data.utilisateur));
   }, []);
+  useEffect(() => {
+    // 👇️ scroll to bottom every time messages change
+    lastMessageRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [commentTitle]);
 
   const usersComments = useMemo(() => {
     return commentTitle.map((comment) => {
@@ -82,7 +88,7 @@ const CommentContainer = ({ videoId, socket }) => {
     /* fetch("http://localhost:3000/comments/comment", {
       method: "post",
       headers: {
-        "Content-Type": "application/json", */
+        "Content-Type": "application/json", 
     // 'Content-Type': 'application/x-www-form-urlencoded',
     /*    },
       body: JSON.stringify({ commentaire: textComment, videoId }),
@@ -99,7 +105,7 @@ const CommentContainer = ({ videoId, socket }) => {
         </h3>
       </div>
       <div className="profil-input">
-        <img className="profilComment" src={profil} />
+        <img className="profilComment" src={userDbInfo?.image || profil} />
         <input
           className="input-comment"
           value={textComment}
@@ -107,7 +113,7 @@ const CommentContainer = ({ videoId, socket }) => {
           placeholder="Laisser un commentaire"
         />
         <button className="send-comment" onClick={post}>
-          Ajouter un commentaire
+          Commenter
         </button>
       </div>
       {usersComments
@@ -115,7 +121,11 @@ const CommentContainer = ({ videoId, socket }) => {
         .map((comment) => {
           return (
             <div key={comment._id}>
-              <Comment comment={comment} socket={socket} />
+              <Comment
+                comment={comment}
+                socket={socket}
+                lastMessageRef={lastMessageRef}
+              />
             </div>
           );
         })}

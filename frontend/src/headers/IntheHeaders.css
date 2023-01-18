@@ -11,23 +11,98 @@
 .logo img {
   margin: 1rem;
   width: 13rem;
+  border-radius: 20px;
+}
+.container-img {
+  position: relative;
+  min-height: 120px;
+}
+
+.container-img img {
+  height: 120px;
+  width: 120px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+img {
+  object-fit: cover;
+}
+
+.container-img .img-overlay {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 120px;
+  width: 120px;
+}
+
+.loading-img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50px);
+}
+
+.input-img {
+  display: none;
+}
+
+.icons-camera {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+}
+.container-link {
+  display: flex;
+}
+.link {
+  display: flex;
+}
+
+.facebook {
+  color: white;
+  cursor: pointer;
+}
+.facebook:hover {
+  color: #a81818;
+}
+.instagram {
+  color: white;
+  cursor: pointer;
+  border-radius: 50%;
+  margin: 0 10px 0px 10px;
+}
+.instagram:hover {
+  color: #a81818;
 }
 .search-bar img {
   width: 1.5rem;
-  margin-top: 4px;
+  margin-top: -10px;
 }
 .search-bar {
   display: flex;
+  align-items: flex-end;
 }
 .btn-search {
-  margin-top: 1rem;
+  margin: 1rem;
   width: 4rem;
   height: 2.5rem;
+  border-radius: 30px;
+  padding: 20px;
 }
 .btn-search:hover {
   background-color: #a81818;
   border: none;
-  border-radius: 2px;
+  border-radius: 30px;
+  cursor: pointer;
 }
 input {
   display: flex;
@@ -38,17 +113,24 @@ input {
   font-size: 17px;
   background-color: #d9d9d9;
   margin: 1rem;
+  border-radius: 30px;
+  padding: 5px;
 }
+input:focus {
+  outline: none;
+}
+
 .profil img {
   width: 2rem;
   height: 2rem;
-  margin-right: 2rem;
+
   border-radius: 50%;
 }
 .profil-container {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  margin-top: 10px;
 }
 
 @media screen and (max-width: 425px) {
